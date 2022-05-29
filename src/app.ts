@@ -111,7 +111,33 @@ let p2 : Point = 1;
 
 // interface PointInterface = string | number; // Not valid!
 
-/* interface: Allows you to specify OPTIONAL and READ-ONLY properties */
+// TYPE can also be EXTENDED like this:
+type Animal = {
+    readonly legs: number;
+    diet?: string
+}
+
+type Mascot = Animal & {
+    breed: string;
+    owner: string;
+}
+
+// then the mascot object is composed also by the animal one
+let myDog: Mascot = {
+    legs: 4,
+    breed: 'Doberman',
+    owner: 'me'
+}
+
+// Interface can be EXTENDED just with the 'extended' keyword (Cleaner in my view):
+
+interface WorkerInt extends Person2 {
+    company: string
+}
+
+// An interface can also extend a type and a type can extend an Interface "with &"
+
+/* interface: Allows you to specify OPTIONAL and READ-ONLY properties - > TYPE lets you do the same actually*/
 
 interface HouseInterface {
     readonly id: number   // readonly prop
