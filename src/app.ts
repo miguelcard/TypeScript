@@ -99,6 +99,7 @@ const user3: UserInterface = {
     name: 'Ernest'
 }
 
+//___________________________TYPE vs INTERFACE_______________________
 /* Note: guy from vid would use an interface over a type to Describe objects (just preference) 
     but there are differences: 
     
@@ -155,6 +156,19 @@ let myHouse: HouseInterface =
 }
 
 // myHouse.id = 2;      // not allowed, is readonly
+
+// NOTE: Type lets you define string literals like:
+/**
+ * A union type of string literal types is a very useful pattern, creating what is basically an enum with string values.
+ */
+ 
+type PartyZone = "pizza hut" | "waterpark" | "bowling alley" | "abandoned warehouse";
+
+function goToParty (place: PartyZone): string {
+ return `lets go to the ${place}`;
+}
+goToParty("pizza hut");
+// goToParty("chuck e. cheese"); // Argument of type `”chuck e. cheese”’ is not assignable to parameter of type ‘PartyZone’
 
 
 /**_________________________________Functions____________________________________________ */
